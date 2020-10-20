@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app08">
+        <img :src="src" :title="title" :class="{showCss}">
+
+    </div>
+
+    <script src="./vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#app08",
+
+            data: {
+                title: "帅气的二哈",
+                showCss: false,
+                src: "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3469716026,2816395410&fm=26&gp=0.jpg"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app06">
+        <span v-show="true">{{msg}}</span>
+        <br>
+        <span v-show="false">{{msg}}</span>
+        <br>
+        <input type="button" value="button" @click="change()">
+        <br>
+        <span v-show="is_show">{{msg}}</span>
+    </div>
+
+    <script src='./vue.min.js'></script>
+    <script>
+        new Vue({
+            el:"#app06",
+            data:{
+                is_show:"True",
+                msg:"hello world",
+            },
+            methods:{
+                change(){
+                    this.is_show=!this.is_show;
+                },
+            }
+        })
+    </script>
+    
+</body>
+</html>

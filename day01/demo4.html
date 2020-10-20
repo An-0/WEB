@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app04">
+        age:{{msg}}
+        <br>
+        <input type="button" value="+" @click="add"><input type="button" value="-" @click="minus">
+    </div>
+
+    <script src='./vue.min.js'></script>
+    <script>
+        new Vue({
+            el:"#app04",
+            data:{
+                msg:5,
+            },
+            methods:{
+                add(){
+                    this.msg++
+                },
+                minus(){
+                    this.msg--
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
