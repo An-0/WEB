@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app02">
+        {{num}}
+        <br>
+        <!-- {{parseInt(num/10)}} -->
+        {{shi}}
+        <br>
+        <!-- {{num%10}} -->
+        {{ge}}
+        <input type="button" @click="jian()" value='减'>
+
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+        new Vue({
+            el:"#app02",
+            data:{
+                num:20,
+                shi:"",
+                ge:"",
+            },
+            methods:{
+                jian(){
+                    this.num--;
+                },
+            },
+            watch:{
+                num(){
+                    this.ge=this.num%10;
+                    this.shi=parseInt(this.num/10);
+                },
+            },
+        })
+    </script>
+
+    
+</body>
+</html>

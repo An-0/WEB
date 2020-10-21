@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app10">
+
+        这是父组件中的username: {{username}}
+        <hr>
+        <com @btn="clickMe"></com>
+    
+    </div>
+    
+    <script src="./vue.min.js"></script>
+    <script>
+    
+        let com = {
+            template: `
+              <div>
+              <button @click="clickBtn">按钮</button>
+              </div>
+            `,
+            methods: {
+                clickBtn() {
+                    this.$emit("btn", "1")
+                },
+            }
+        }
+    
+    
+        new Vue({
+            el: "#app10",
+            data: {
+                username: "小黑",
+            },
+            methods: {
+                clickMe(username) {
+                    console.log(username);
+                    this.username = username;
+                },
+            },
+            components: {
+                com: com,
+            }
+        })
+    </script>
+    
+</body>
+</html>

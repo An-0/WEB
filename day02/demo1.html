@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app01">
+    <input type="number" v-model="shi" max="9" min="0">
+    <input type="number" v-model="ge" max="9" min="0">
+    结果: <b>{{ shi * 10 + +ge }}</b>
+    结果: <b>{{result}}</b>
+    </div>
+
+
+    <script src="./vue.min.js"></script>
+    <script>
+        new Vue({
+            el:"#app01",
+            data:{
+                shi:"",
+                ge:"",
+            },
+            computed:{
+                result() {
+                return this.shi * 10 + +this.ge;
+            },
+
+            },
+        })
+    </script>
+    
+</body>
+</html>

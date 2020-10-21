@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app06">
+        <first></first>
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+    
+        let first = {
+            template: `
+              <div>
+              <span @click="change">{{username}}</span>
+              </div>
+            `,
+            data: function () {
+                return {
+                    username: "小黑",
+                }
+            },
+            methods: {
+                change(){
+                    this.username="小白"
+                }
+            }
+        }
+    
+        Vue.component("first", first)
+    
+        new Vue({
+            el: "#app06",
+            data: {},
+        })
+    </script>
+    
+</body>
+</html>
