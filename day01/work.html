@@ -24,31 +24,29 @@
         new Vue({
         el: "#app",
         data: {
-            notebook: ["Vue真好用", "我特别想听毛老师讲课"],
+            notebook: ["1", "2"],
             msg: "",
             is_show:"true",
         },
         methods: {
-            // 添加留言
+
             add_note() {
 
-                // 判断输入框是否有值  有值则添加
+
                 let msg = this.msg;
                 if (msg) {
-                    // 默认添加到留言板的末尾
-                    // this.notebook.push(this.msg);
-                    // 添加到留言板的首部
+
                     this.notebook.unshift(this.msg);
                     this.is_show="true"
                     this.msg = "";
                 }
             },
 
-            // 删除留言
+
             delNote(index){
                 console.log(index);
-                // 根据下标取删除某个元素
-                this.notebook.splice(index, 1)  // 参数1: 从哪个下标开始删除  参数2: 删除的元素个数
+ 
+                this.notebook.splice(index, 1)  
             },
             deleteAll(){
                 this.notebook.splice(0);
