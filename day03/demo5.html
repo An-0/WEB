@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app05">
+
+    <router-view></router-view>
+
+</div>
+
+<script src="./vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+
+    let com = {
+        template: `
+          <div>
+          test1
+          <br>
+          <button @click="goPage">switch</button>
+          </div>
+        `,
+        methods: {
+            goPage() {
+                this.$router.push({path: "/com2/1"});
+            }
+        }
+    }
+
+    let com2 = {
+        template: `
+          <div>
+            test2
+            <br>
+            {{ $route.query.id }}
+          <div>
+            {{ $route.params.id }}
+            </div>
+          <h3 @click="goBack">返回上一页</h3>
+          </div>
+        `,
+        methods: {
+            goBack() {
+                this.$router.go(-1);
+            },
+        }
+    }
+
+    let myRouter = new VueRouter({
+        routes: [
+            {path: "/com", component: com},
+            {path: "/com2/:id", component: com2},
+            {path: "/", redirect: "/com"},
+        ]
+    })
+
+    new Vue({
+        el: "#app05",
+        data: {},
+        router: myRouter,
+    })
+</script>
+
+</body>
+</html>

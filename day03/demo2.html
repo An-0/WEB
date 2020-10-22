@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app02">
+
+    <router-link to="/index">首页</router-link>
+    <router-link to="/user">用户</router-link>
+    <hr>
+    <router-view></router-view>
+
+</div>
+
+<script src="./vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    let index = {
+        template: `
+            <div>
+            test1
+            </div>
+        `
+    }
+    let user = {
+        template: `
+          <div>
+          <table border="2">
+            <tr>
+              <td>ID</td>
+              <td>姓名</td>
+            </tr>
+            <tr v-for="user in users" :key="user.id">
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+            </tr>
+          </table>
+          </div>
+        `,
+        data() {
+            return {
+                users: [
+                    {"id": 1, username: "1"},
+                    {"id": 2, username: "2"},
+                    {"id": 3, username: "3"},
+                ]
+            }
+        },
+    }
+    let myRouter = new VueRouter({
+        routes: [
+            {path: "/index", component: index},
+            {path: "/user", component: user},
+            {path: "/", redirect: "/index"},
+            {path: "/*", redirect: "/index"}
+        ]
+    })
+
+
+    new Vue({
+        el: "#app02",
+        data: {},
+        router: myRouter,
+    })
+</script>
+
+</body>
+</html>

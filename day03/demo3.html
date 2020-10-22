@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app03">
+
+    <router-view></router-view>
+
+</div>
+
+<script src="./vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    let first = {
+        template: `
+            <div>
+                test1
+                <router-link to="/second?id=3&name=1234231">switch test2</router-link>
+            </div>
+        `
+    }
+    let second = {
+        template: `
+            <div>
+            test2 
+            <br>
+            {{ $route.query.id }}
+            <br>
+            {{ $route.query.name }}
+            </div>
+        `
+    }
+    let myRouter = new VueRouter({
+        routes: [
+            {path: "/first",  component: first},
+            {path: "/second", component: second},
+            {path: "/", redirect: "/first"},
+        ]
+    })
+    new Vue({
+        el: "#app03",
+        data: {},
+        router: myRouter,
+    })
+</script>
+
+</body>
+</html>
